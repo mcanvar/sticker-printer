@@ -23,7 +23,9 @@
 
                 let link = document.createElement('a');
                 link.setAttribute('href', 'javascript:void(0)');
-                link.onclick = function () {print(cargoCodeSpan.textContent);};
+                link.onclick = function () {
+                    print(cargoCodeSpan.textContent);
+                };
                 link.appendChild(printerImage);
 
                 cargoCodeSpan.appendChild(link);
@@ -34,13 +36,7 @@
     }
 
     function print(cargoCode) {
-        let printWindow = window.open('https://mcanvar.github.io/sticker-printer/page-project/dist/index.html?cargoCode=' + cargoCode, '', 'toolbars=no,scrollbars=no,status=no,resizable=no');
-
-        setTimeout(function () {
-            printWindow.focus();
-            printWindow.print();
-            printWindow.close();
-        }, 2000);
+        browser.runtime.sendMessage({from: 'content', message: cargoCode});
     }
 
     const observer = new MutationObserver(appendPrinterButton);
