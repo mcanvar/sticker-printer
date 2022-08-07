@@ -13,7 +13,7 @@ export default {
         {name: "DOLAP", value: "DLP"}
       ],
       market: "TY",
-      labels: new Array(44).fill({printed: false}),
+      labels: [],
       printing: false
     };
   },
@@ -98,8 +98,11 @@ export default {
 
     if (localStorage.getItem("labelsOfTW2044"))
       this.labels = JSON.parse(localStorage.getItem("labelsOfTW2044"));
+    else
+      this.labels = new Array(44).fill({printed: false});
   },
   mounted() {
+
     this.locateToTheLast();
 
     this.reDrawBarcode();
