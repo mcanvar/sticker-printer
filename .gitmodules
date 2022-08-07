@@ -1,3 +1,6 @@
 [submodule "page-project"]
 	path = page-project
 	url = ./page-project
+[submodule "extension-project"]
+	path = extension-project
+	url = ./extension-project
