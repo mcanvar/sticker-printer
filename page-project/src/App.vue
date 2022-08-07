@@ -21,8 +21,11 @@ export default {
     location() {
       this.reDrawBarcode();
     },
-    labels(newLabels) {
-      localStorage.setItem("labelsOfTW2044", JSON.stringify(newLabels));
+    labels: {
+      deep: true,
+      handler(newLabels) {
+        localStorage.labelsOfTW2044 = JSON.stringify(newLabels);
+      }
     },
     cargoCode() {
       this.reDrawBarcode();
@@ -61,15 +64,16 @@ export default {
       setTimeout(() => {
         window.print();
 
-        this.labels[this.location - 1].printed = true;
+        this.labels[(this.location - 1)].printed = true;
 
         this.locateToTheLast();
-      }, 1000);
+      }, 500);
     },
     selectLocation(number) {
       if (this.printing) {
         this.printing = false;
-        this.location--;
+
+        if(this.location) this.location--;
 
         return;
       }
@@ -96,13 +100,12 @@ export default {
 
     if (params.cargoCode) this.cargoCode = params.cargoCode;
 
-    if (localStorage.getItem("labelsOfTW2044"))
-      this.labels = JSON.parse(localStorage.getItem("labelsOfTW2044"));
+    if (localStorage.labelsOfTW2044)
+      this.labels = JSON.parse(localStorage.labelsOfTW2044);
     else
       this.labels = new Array(44).fill({printed: false});
   },
   mounted() {
-
     this.locateToTheLast();
 
     this.reDrawBarcode();
