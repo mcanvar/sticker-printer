@@ -1,0 +1,18 @@
+{
+
+  "description": "Adds a solid red border to all webpages matching mozilla.org. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#borderify",
+  "manifest_version": 2,
+  "name": "Single Sticker Printer for TW-2044",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mcanvar/d",
+  "icons": {
+    "48": "icons/printer-48.png",
+    "128": "icons/printer-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.trendyol.com/*"],
+      "js": ["printer.js"]
+    }
+  ]
+}
