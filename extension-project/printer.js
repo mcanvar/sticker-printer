@@ -34,7 +34,7 @@
     }
 
     function print(cargoCode) {
-        let printWindow = window.open('https://codepen.io/mcanvar/full/OJvzVVJ?cargoCode=' + cargoCode, '', 'toolbars=no,scrollbars=no,status=no,resizable=no');
+        let printWindow = window.open('https://mcanvar.github.io/sticker-printer/page-project/dist?cargoCode=' + cargoCode, '', 'toolbars=no,scrollbars=no,status=no,resizable=no');
 
         setTimeout(function () {
             printWindow.focus();
