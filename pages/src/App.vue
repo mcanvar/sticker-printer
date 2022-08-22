@@ -24,7 +24,7 @@ export default {
     labels: {
       deep: true,
       handler(newLabels) {
-        localStorage.labelsOfTW2044 = JSON.stringify(newLabels);
+        browser.storage.local.set({labels: JSON.stringify(newLabels)});
       }
     },
     cargoCode() {
@@ -73,7 +73,7 @@ export default {
       if (this.printing) {
         this.printing = false;
 
-        if(this.location) this.location--;
+        if (this.location) this.location--;
 
         return;
       }
@@ -83,7 +83,7 @@ export default {
     },
     locateToTheLast() {
       for (let i = 43; i >= 0; i--) {
-        if (!this.labels[i].printed) {
+        if (this.labels[i] && !this.labels[i].printed) {
           this.location = i + 1;
           break;
         }
@@ -93,17 +93,18 @@ export default {
       setTimeout(() => JsBarcode(".barcode").init(), 300);
     }
   },
-  created() {
+  async created() {
     const params = new Proxy(new URLSearchParams(window.location.search), {
       get: (searchParams, prop) => searchParams.get(prop)
     });
 
     if (params.cargoCode) this.cargoCode = params.cargoCode;
 
-    if (localStorage.labelsOfTW2044)
-      this.labels = JSON.parse(localStorage.labelsOfTW2044);
-    else
-      this.labels = new Array(44).fill({printed: false});
+    const {labels} = await browser.storage.local.get({
+      labels: JSON.stringify(new Array(44).fill({printed: false}))
+    });
+
+    this.labels = JSON.parse(labels);
   },
   mounted() {
     this.locateToTheLast();

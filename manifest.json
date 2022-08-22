@@ -2,7 +2,7 @@
   "description": "Single Sticker Printer for TW-2044",
   "manifest_version": 2,
   "name": "Single Sticker Printer for TW-2044",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage_url": "https://github.com/mcanvar/sticker-printer/tree/main/extension-project",
   "icons": {
     "48": "icons/printer-48.png",
@@ -23,5 +23,8 @@
       "js": ["print.js"],
       "run_at": "document_idle"
     }
+  ],
+  "permissions": [
+    "storage"
   ]
 }
