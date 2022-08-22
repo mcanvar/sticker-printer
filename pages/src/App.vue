@@ -113,6 +113,10 @@ export default {
 
     window.addEventListener("afterprint", (event) => {
       this.printing = false;
+
+      setTimeout(function () {
+        window.close();
+      }, 1500);
     });
   }
 }
