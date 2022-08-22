@@ -17,11 +17,6 @@
       "matches": ["*://*.trendyol.com/*"],
       "js": ["printer.js"],
       "run_at": "document_idle"
-    },
-    {
-      "matches": ["*://*.github.io/*"],
-      "js": ["print.js"],
-      "run_at": "document_idle"
     }
   ],
   "permissions": [

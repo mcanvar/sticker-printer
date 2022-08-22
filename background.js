@@ -3,8 +3,6 @@ browser.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 
         const URL = browser.runtime.getURL("pages/dist/index.html")
 
-        console.log(URL);
-
         browser.windows.create({
             url: URL + '?cargoCode=' + message.message,
             type: 'popup'
