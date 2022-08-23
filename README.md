@@ -2,6 +2,12 @@
 
 ## Extension for Development
 
+We will be using [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) package for developing, so:
+
+`npm install --global web-ext`
+
+then:
+
 `web-ext run --start-url partner.trendyol.com`
 
 ## Extension Build
