@@ -82,12 +82,14 @@ export default {
       this.reDrawBarcode();
     },
     locateToTheLast() {
-      for (let i = 43; i >= 0; i--) {
-        if (this.labels[i] && !this.labels[i].printed) {
-          this.location = i + 1;
-          break;
+      setTimeout(() => {
+        for (let i = 43; i >= 0; i--) {
+          if (this.labels[i] && !this.labels[i].printed) {
+            this.location = i + 1;
+            break;
+          }
         }
-      }
+      }, 500);
     },
     reDrawBarcode() {
       setTimeout(() => JsBarcode(".barcode").init(), 300);
@@ -116,7 +118,7 @@ export default {
 
       setTimeout(function () {
         window.close();
-      }, 1500);
+      }, 800);
     });
   }
 }
