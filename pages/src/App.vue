@@ -102,6 +102,19 @@ export default {
 
     if (params.cargoCode) this.cargoCode = params.cargoCode;
 
+    if (params.marketplace) {
+      switch (params.marketplace) {
+        case 'partner.trendyol.com':
+          this.market = 'TY';
+          break;
+        case 'merchant.hepsiburada.com':
+          this.market = 'HB';
+          break;
+        default:
+          break;
+      }
+    }
+
     const {labels} = await browser.storage.local.get({
       labels: JSON.stringify(new Array(44).fill({printed: false}))
     });

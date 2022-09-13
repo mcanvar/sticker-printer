@@ -37,7 +37,7 @@
                 let link = document.createElement('a');
                 link.setAttribute('href', 'javascript:void(0)');
                 link.onclick = function () {
-                    print(cargoCodeSpan.textContent);
+                    print({code: cargoCodeSpan.textContent, marketplace: window.location.hostname});
                 };
                 link.appendChild(printerImage);
 
@@ -48,8 +48,8 @@
         }
     }
 
-    function print(cargoCode) {
-        browser.runtime.sendMessage({from: 'content', message: cargoCode});
+    function print(message) {
+        browser.runtime.sendMessage({from: 'content', message: message});
     }
 
     const observer = new MutationObserver(appendPrinterButton);
