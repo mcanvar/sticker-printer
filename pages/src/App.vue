@@ -10,7 +10,8 @@ export default {
         {name: "TRENDYOL", value: "TY"},
         {name: "HEPSIBURADA", value: "HB"},
         {name: "CICEKSEPETI", value: "CS"},
-        {name: "DOLAP", value: "DLP"}
+        {name: "DOLAP", value: "DLP"},
+        {name: "GARDROPS", value: "GRD"}
       ],
       market: "TY",
       labels: [],
