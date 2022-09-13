@@ -8,7 +8,20 @@
     const tag = `printer-${Date.now()}`
 
     function appendPrinterButton() {
-        let cargoCodes = document.getElementsByClassName('cargo-code-number');
+        let cargoCodes = [];
+
+        switch (window.location.hostname) {
+            case 'partner.trendyol.com':
+                cargoCodes = document.getElementsByClassName('cargo-code-number');
+                break;
+            case 'merchant.hepsiburada.com':
+                const orderRows = document.getElementsByClassName('order-row orders-page__item');
+
+                for (const orderRow of orderRows) {
+                    cargoCodes.push(orderRow.getElementsByClassName('solo-list-item__content').item(11))
+                }
+                break;
+        }
 
         for (let n = 0; n < cargoCodes.length; n++) {
 

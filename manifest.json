@@ -17,6 +17,11 @@
       "matches": ["*://*.trendyol.com/*"],
       "js": ["printer.js"],
       "run_at": "document_idle"
+    },
+    {
+      "matches": ["*://*.hepsiburada.com/*"],
+      "js": ["printer.js"],
+      "run_at": "document_idle"
     }
   ],
   "permissions": [
