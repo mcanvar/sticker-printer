@@ -1,8 +1,8 @@
 {
-  "description": "Single Sticker Printer for TW-2044",
+  "description": "Single Sticker Printer for Marketplaces",
   "manifest_version": 2,
-  "name": "Single Sticker Printer for TW-2044",
-  "version": "1.0.4",
+  "name": "Single Sticker Printer for Marketplaces",
+  "version": "1.0.5",
   "homepage_url": "https://github.com/mcanvar/sticker-printer",
   "icons": {
     "48": "icons/printer-48.png",
